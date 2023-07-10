@@ -32,18 +32,6 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          export PATH="$HOME/.local/bin:$PATH"
-
-      - name: Install dependencies
-        run: poetry install --only main
-
-      - name: Export requirements.txt
-        run: |
-          poetry export -f requirements.txt --output requirements.txt --without-hashes
-
       - name: Install dependencies
         run: pip install -r requirements.txt
 

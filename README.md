@@ -46,6 +46,14 @@ Alternately, model artifacts are zipped and can later be uploaded to the s3 buck
 ```
 ansible-playbook upload_model_af.yml
 ```
+N.B. set up .env with following variables:
+```
+MODEL_ARTIFACTS_STORE=<name>
+DATA_STORE=<name>
+RESULTS_STORE=<name>
+AWS_ACCESS_KEY=<your-access-key>
+AWS_SECRET_ACCESS_KEY=<your-secret-acess-key>
+```
 
 #### Future:
 The retraining process will be triggered based on the event:<br>
