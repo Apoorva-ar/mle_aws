@@ -1,0 +1,31 @@
+repos:
+-   repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+    -   id: black
+        args:
+            - --line-length=120
+
+-   repo: https://github.com/timothycrosley/isort
+    rev: 5.11.5
+    hooks:
+    -   id: isort
+        additional_dependencies: [ toml ]
+        args:
+            - --profile=black
+            - --line-length=120
+
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: check-merge-conflict
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v1.2.3
+    hooks:
+    -   id: flake8
+        args: ['--ignore=E501, W503, E203']

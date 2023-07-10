@@ -1,0 +1,8 @@
+*.json
+.DS_Store
+.terraform*
+.venv
+*.lock
+model*
+terraform*
+.env

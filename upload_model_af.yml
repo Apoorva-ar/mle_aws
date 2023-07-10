@@ -1,0 +1,15 @@
+- name: Upload file to S3 bucket
+  hosts: localhost
+  gather_facts: false
+  vars:
+    s3_bucket: "model-artifacts-apoorva"
+    source_file: "src/models/model_af_2.zip"
+    destination_file: "model_af_2.zip"
+
+  tasks:
+    - name: Upload file to S3 bucket
+      amazon.aws.aws_s3:
+        bucket: "{{ s3_bucket }}"
+        object: "{{ destination_file }}"
+        src: "{{ source_file }}"
+        mode: "put"
