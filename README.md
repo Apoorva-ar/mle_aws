@@ -1,8 +1,10 @@
-# End-to-ENd ML Project with CI/CD on AWS
+# End-to-End ML Project with CI/CD on AWS
 
 This project aims to create a scalable machine learning infrastructure on AWS with continuous integration and deployment (CI/CD) in place. As an ML engineer, my goal is to build a scalable infrastructure that handles data processing, model retraining, and inference efficiently.
 
 ## Project Workflow
+Tech stack: <br>
+Docker, Flask, Terraform, Ansible, AWS, GitHub Actions
 ## Infrastructure Update using Terraform 
 The infrastructure for this project is managed using Terraform. Terraform configuration file ``main.tf``. defines the required AWS resources, such as S3 buckets and necessary permissions. Use the following commands to set-up infra:<br>
 Initialse the state<br>
