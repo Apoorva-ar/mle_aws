@@ -1,9 +1,9 @@
-# Scalable ML Project with CI/CD on AWS
+# End-to-ENd ML Project with CI/CD on AWS
 
 This project aims to create a scalable machine learning infrastructure on AWS with continuous integration and deployment (CI/CD) in place. As an ML engineer, my goal is to build a scalable infrastructure that handles data processing, model retraining, and inference efficiently.
 
 ## Project Workflow
-### Infrastructure Update using Terraform 
+## Infrastructure Update using Terraform 
 The infrastructure for this project is managed using Terraform. Terraform configuration file ``main.tf``. defines the required AWS resources, such as S3 buckets and necessary permissions. Use the following commands to set-up infra:<br>
 Initialse the state<br>
 ```
@@ -29,7 +29,7 @@ python cleanup.py
 ```
 N.B Make sure AWS keys are configured with your code env/editor to be able to interact with AWS<br>
 
-### Training/Retraining
+## Training/Retraining
 Model retraining is triggerred by running train.py<br>
 ```
 python train.py
@@ -60,7 +60,7 @@ The retraining process will be triggered based on the event:<br>
 - Data arrival: Whenever new data is put into the S3 bucket ``train-data``, it triggers the retraining process to incorporate the latest data.<br>
 - Code change: When there is a merge to the main branch of code repository, initiate the retraining process to reflect any code updates.<br>
 
-### Inference
+## Inference
 - In the current implemetation the inference function ``predict.py`` runs as a Flask App in a docker container.<br>
 - It is exposed to an end point that can receive POST requests with test data and model version in the body of the request.<br>
 - The model corresponding to the model version passed is fetched from s3 bucket ``model-artifacts`` along with scaler object (same version) for pre-processing the test data.<br>
@@ -98,7 +98,7 @@ The results will be added to the S3 bucket: ``results-bucket``.
 #### Future:
 As a extension, the docker image can bet put in the AWS ECR and run as tasks on AWS ECS. The code can also be modified to handle batch predicts with some modifications.
 AWS Lambda functions turned out to be not suitable for this due to size limitaions.
-### CI/CD
+## CI/CD
 To achieve CI/CD, use GitHub Actions. Configure the CI/CD pipeline to trigger any updates whenever changes are pushed to the main branch.  <br>
 - Create a file 'ci.yml' in directory 
 ```.github/worflows```<br>
